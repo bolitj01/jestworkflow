@@ -1,3 +1,4 @@
+require("leaked-handles");
 import {MongoClient} from 'mongodb';
 import {config} from "dotenv";
 
@@ -26,7 +27,7 @@ describe('insert', () => {
 
     const mockUser = {_id: 'some-user-id', name: 'John'};
     await users.insertOne(mockUser);
-
+    
     const insertedUser = await users.findOne({_id: 'some-user-id'});
     expect(insertedUser).toEqual(mockUser);
   });

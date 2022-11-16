@@ -1,4 +1,5 @@
 //Based on example from https://jestjs.io/docs/timer-mocks
+require("leaked-handles");
 import timerGame from "./timerGame";
 
 test("calls the callback after 1 second", () => {
@@ -8,7 +9,8 @@ test("calls the callback after 1 second", () => {
 
     const cb = jest.fn();
 
-    timerGame(cb);
+    const timer = timerGame(cb);
+    timer.unref();
 
     expect(cb).not.toBeCalled();
 
