@@ -41,7 +41,7 @@ describe("My Stack", () => {
         const stack = new Stack();
         stack.push(10);
         stack.push(5);
-        expect(stack.pop()).toBe(-6);
+        expect(stack.pop()).toBe(5);
     });
 
 
